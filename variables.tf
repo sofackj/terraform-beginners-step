@@ -16,6 +16,11 @@ variable "tag_name" {
   type    = string
   default = "julien"
 }
+# Id of the AMI
+variable "ami_id" {
+  description = "standard free ec2 instance"
+  default = "ami-005835d578c62050d"
+}
 # Sensitives values
 variable "access_key" {
 
