@@ -21,9 +21,11 @@ resource "aws_instance" "k8s-worker-1" {
    vpc_security_group_ids = [
     aws_security_group.allow_all.id,
    ]
+    private_dns_name_options {
+        hostname_type                        = "resource-name"
+  }
    # Execute the script when starting the instance
-   user_data = file("./script-k8s-worker-1.sh")
-   
+   user_data = file("./script-k8s-worker.sh")
    tags = {
     Name = "k8s-worker"
   }
@@ -36,8 +38,11 @@ resource "aws_instance" "k8s-worker-2" {
    vpc_security_group_ids = [
     aws_security_group.allow_all.id,
    ]
+   private_dns_name_options {
+        hostname_type                        = "resource-name"
+  }
    # Execute the script when starting the instance
-   user_data = file("./script-k8s-worker-2.sh")
+   user_data = file("./script-k8s-worker.sh")
    
    tags = {
     Name = "k8s-worker"

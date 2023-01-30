@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo hostnamectl hostname worker-node-2
+# sudo hostnamectl hostname worker-node-2
 sudo -i <<EOF
 apt-get update -y
 apt-get install vim htop curl
