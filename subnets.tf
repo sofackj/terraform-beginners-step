@@ -14,7 +14,6 @@ resource "aws_subnet" "batgirl" {
   vpc_id                  = aws_vpc.batman.id
   cidr_block              = "13.57.130.0/24"
   availability_zone       = "ap-southeast-1a"
-  map_public_ip_on_launch = true
 
   tags = {
     Name = var.tag_name

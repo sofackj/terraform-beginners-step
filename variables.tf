@@ -19,7 +19,8 @@ variable "tag_name" {
 # Id of the AMI
 variable "ami_id" {
   description = "standard free ec2 instance"
-  default = "ami-005835d578c62050d"
+  # Ubuntu server
+  default = "ami-0b7e55206a0a22afc"
 }
 # Sensitives values
 variable "access_key" {
