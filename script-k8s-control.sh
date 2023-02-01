@@ -38,13 +38,14 @@ EOF
 # Script to setup kubectl for the current user
 cat <<EOF >> /tmp/my-script.sh
 #!/bin/sh
-mkdir -p \$HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf \$HOME/.kube/config
-sudo chown $(id -u):$(id -g) \$HOME/.kube/config
 sudo kubeadm token create --print-join-command
 EOF
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # Give permission to execute the script
 sudo chmod 777 /tmp/my-script.sh
+sudo chown ubuntu:ubuntu /tmp/my-script.sh
 # Install the network manager for k8s
 kubectl apply -f https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 # Install helm
