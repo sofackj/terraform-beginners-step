@@ -19,27 +19,23 @@
 #     entity =  "numfactory"
 #   }
 # }
-resource "aws_subnet" "jskpublicsubnet" {
+resource "aws_subnet" "publicsubnet" {
   vpc_id                  = var.vpc_id
   cidr_block              = "10.0.111.128/25"
   availability_zone       = "eu-west-3b"
   map_public_ip_on_launch = true
 
   tags = {
-    owner =  "jsofack-lemaire@thenuumfactory.fr"
-    ephemere = "oui"
-    entity =  "numfactory"
+    name = "nuumfactory-dev-db-subpub-15"
   }
 }
 # Add a private subnet in the vpc "main"
-resource "aws_subnet" "jskprivatesubnet" {
+resource "aws_subnet" "privatesubnet" {
   vpc_id                  = var.vpc_id
   cidr_block              = "10.0.111.0/25"
   availability_zone       = "eu-west-3b"
 
   tags = {
-    owner =  "jsofack-lemaire@thenuumfactory.fr"
-    ephemere = "oui"
-    entity =  "numfactory"
+    name = "nuumfactory-dev-db-subpriv-15"
   }
 }
