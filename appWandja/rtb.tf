@@ -1,6 +1,7 @@
 # Create route table for public subnets
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc1.id
+  name = "jsk-rtb-pub"
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.gw.id
@@ -14,6 +15,7 @@ resource "aws_route_table" "public" {
 # Create route table for private subnets
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.vpc1.id
+  name = "jsk-rtb-priv"
   tags = {
     owner =  "jsofack-lemaire@thenuumfactory.fr"
     ephemere = "oui"
