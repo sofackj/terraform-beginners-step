@@ -1,6 +1,5 @@
 resource "aws_instance" "appserver" {
    instance_type = "t2.micro"
-   name = "jsk-ec2"
    ami = var.ami_id
    subnet_id = aws_subnet.jskpublicsubnet.id
    # Apply security groups to the instance

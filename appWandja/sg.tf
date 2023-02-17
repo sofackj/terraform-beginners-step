@@ -1,5 +1,4 @@
 resource "aws_security_group" "publicsubnet" {
-  name        = "public-subnet"
   description = "Allow connection"
   vpc_id      = aws_vpc.vpc1.id
 
@@ -25,7 +24,6 @@ resource "aws_security_group" "publicsubnet" {
 }
 
 resource "aws_security_group" "privatesubnet" {
-  name        = "private-subnet"
   description = "Allow connection"
   vpc_id      = aws_vpc.vpc1.id
 
