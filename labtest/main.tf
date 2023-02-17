@@ -5,6 +5,11 @@ terraform {
       version = "~> 4.0"
     }
   }
+  backend "s3" {
+    bucket = "nuumfactory-terraform-backend"
+    key = "terraform-15.tfstate"
+    region = "eu-west-3"
+    }
 }
 
 provider "aws" {
@@ -13,8 +18,3 @@ provider "aws" {
  secret_key = var.secret_key
 }
 
-backend "s3" {
-bucket = "nuumfactory-terraform-backend"
-key = "terraform-15.tfstate"
-region = "eu-west-3"
-}
