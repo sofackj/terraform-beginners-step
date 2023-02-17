@@ -6,7 +6,7 @@ resource "aws_security_group" "sgpublb" {
   ingress {
     from_port        = 80
     to_port          = 80
-    protocol         = "-1"
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
 
@@ -29,14 +29,14 @@ resource "aws_security_group" "sgpubec2" {
   ingress {
     from_port        = 80
     to_port          = 80
-    protocol         = "-1"
+    protocol         = "tcp"
     cidr_blocks      = [aws_security_group.sgpublb.id]
   }
 
   ingress {
     from_port        = 22
     to_port          = 22
-    protocol         = "-1"
+    protocol         = "tcp"
     cidr_blocks      = ["5.50.34.152/32"]
   }
 
@@ -60,7 +60,7 @@ resource "aws_security_group" "sgprivdb" {
   ingress {
     from_port        = 3306
     to_port          = 3306
-    protocol         = "-1"
+    protocol         = "tcp"
     cidr_blocks      = [aws_security_group.sgpubec2.id]
   }
 
