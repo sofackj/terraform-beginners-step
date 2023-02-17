@@ -8,7 +8,7 @@ resource "aws_instance" "appserver" {
     aws_security_group.publicsubnet.id,
    ]
    # Execute the script when starting the instance
-  #  user_data = file("./script-k8s-control.sh")
+   user_data = file("./script-apache.sh")
    
    tags = {
     owner =  "jsofack-lemaire@thenuumfactory.fr"
