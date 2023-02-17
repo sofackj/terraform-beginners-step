@@ -26,7 +26,7 @@ resource "aws_subnet" "publicsubnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    name = "nuumfactory-dev-db-subpub-15"
+    Name = "nuumfactory-dev-db-subpub-15"
   }
 }
 # Add a private subnet in the vpc "main"
@@ -36,6 +36,6 @@ resource "aws_subnet" "privatesubnet" {
   availability_zone       = "eu-west-3b"
 
   tags = {
-    name = "nuumfactory-dev-db-subpriv-15"
+    Name = "nuumfactory-dev-db-subpriv-15"
   }
 }
