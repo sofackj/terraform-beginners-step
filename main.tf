@@ -1,11 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-  }
-}
 # Create a VPC
 resource "aws_vpc" "batman" {
   cidr_block       = "13.57.128.0/17"
