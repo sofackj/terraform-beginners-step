@@ -18,7 +18,7 @@ resource "aws_security_group" "sgpublb" {
   }
 
   tags = {
-    name = "nuumfactory-dev-elb-sg-15"
+    Name = "nuumfactory-dev-elb-sg-15"
   }
 }
 resource "aws_security_group" "sgpubec2" {
@@ -48,7 +48,7 @@ resource "aws_security_group" "sgpubec2" {
   }
 
   tags = {
-    name = "nuumfactory-dev-ec2-sg-15"
+    Name = "nuumfactory-dev-ec2-sg-15"
   }
 }
 
@@ -72,6 +72,6 @@ resource "aws_security_group" "sgprivdb" {
   }
 
   tags = {
-    name = "nuumfactory-dev-db-sg-15"
+    Name = "nuumfactory-dev-db-sg-15"
   }
 }
