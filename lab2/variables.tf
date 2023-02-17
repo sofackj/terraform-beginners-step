@@ -11,6 +11,10 @@ variable "my_first_loop" {
     }
   }
 }
+variable "vpc_id" {
+  type = string
+  default = "vpc-06b654aaaf2422e1f"
+}
 # Define tags
 variable "tag_name" {
   type    = string
@@ -20,5 +24,5 @@ variable "tag_name" {
 variable "ami_id" {
   description = "standard free ec2 instance"
   # Ubuntu server
-  default = "ami-0b7e55206a0a22afc"
+  default = "ami-05b457b541faec0ca"
 }

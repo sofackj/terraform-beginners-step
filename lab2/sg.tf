@@ -1,10 +1,11 @@
-resource "aws_security_group" "publicsubnet" {
-  description = "Allow connection"
-  vpc_id      = aws_vpc.vpc1.id
+resource "aws_security_group" "sgpublb" {
+  name = "nuumfactory-dev-elb-sg-15"
+  description = "lba-sg"
+  vpc_id      = var.vpc_id
 
   ingress {
-    from_port        = 0
-    to_port          = 0
+    from_port        = 80
+    to_port          = 80
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -17,21 +18,50 @@ resource "aws_security_group" "publicsubnet" {
   }
 
   tags = {
-    owner =  "jsofack-lemaire@thenuumfactory.fr"
-    ephemere = "oui"
-    entity =  "numfactory"
+    name = "nuumfactory-dev-elb-sg-15"
+  }
+}
+resource "aws_security_group" "sgpubec2" {
+  name = "nuumfactory-dev-ec2-sg-15"
+  description = "ec2-sg"
+  vpc_id      = var.vpc_id
+
+  ingress {
+    from_port        = 80
+    to_port          = 80
+    protocol         = "-1"
+    cidr_blocks      = [aws_security_group.sgpublb.id]
+  }
+
+  ingress {
+    from_port        = 22
+    to_port          = 22
+    protocol         = "-1"
+    cidr_blocks      = ["5.50.34.152/32"]
+  }
+
+  egress {
+    from_port        = 0
+    to_port          = 0
+    protocol         = "-1"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    name = "nuumfactory-dev-ec2-sg-15"
   }
 }
 
-resource "aws_security_group" "privatesubnet" {
-  description = "Allow connection"
-  vpc_id      = aws_vpc.vpc1.id
+resource "aws_security_group" "sgprivdb" {
+  name = "nuumfactory-dev-db-sg-15"
+  description = "sg-db"
+  vpc_id      = var.vpc_id
 
   ingress {
-    from_port        = 0
-    to_port          = 0
+    from_port        = 3306
+    to_port          = 3306
     protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
+    cidr_blocks      = [aws_security_group.sgpubec2.id]
   }
 
   egress {
@@ -42,8 +72,6 @@ resource "aws_security_group" "privatesubnet" {
   }
 
   tags = {
-    owner =  "jsofack-lemaire@thenuumfactory.fr"
-    ephemere = "oui"
-    entity =  "numfactory"
+    name = "nuumfactory-dev-db-sg-15"
   }
 }
