@@ -6,14 +6,18 @@ resource "aws_route_table" "harley" {
     gateway_id = aws_internet_gateway.gw.id
   }
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 # Create route table for private subnets
 resource "aws_route_table" "quinn" {
   vpc_id = aws_vpc.batman.id
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 # Associate the rtb "harley" to public subnets

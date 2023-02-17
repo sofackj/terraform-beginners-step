@@ -18,6 +18,8 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = {
-    Name = "allow_all"
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }

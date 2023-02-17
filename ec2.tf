@@ -10,7 +10,9 @@ resource "aws_instance" "k8s-controler" {
    user_data = file("./script-k8s-control.sh")
    
    tags = {
-    Name = "k8s-controller"
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 resource "aws_instance" "k8s-worker-1" {
@@ -26,8 +28,10 @@ resource "aws_instance" "k8s-worker-1" {
   }
    # Execute the script when starting the instance
    user_data = file("./script-k8s-worker.sh")
-   tags = {
-    Name = "k8s-worker"
+  tags = {
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 resource "aws_instance" "k8s-worker-2" {
@@ -45,6 +49,8 @@ resource "aws_instance" "k8s-worker-2" {
    user_data = file("./script-k8s-worker.sh")
    
    tags = {
-    Name = "k8s-worker"
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }

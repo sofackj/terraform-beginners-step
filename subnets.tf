@@ -6,7 +6,9 @@ resource "aws_subnet" "robin" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 # Add a private subnet in the vpc "main"
@@ -16,7 +18,9 @@ resource "aws_subnet" "batgirl" {
   availability_zone       = "ap-southeast-1a"
 
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 # Add public subnets in the vpc "main"
@@ -28,6 +32,8 @@ resource "aws_subnet" "lots_of_subnets" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "loop-kids"
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }

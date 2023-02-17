@@ -4,7 +4,9 @@ resource "aws_vpc" "batman" {
   instance_tenancy = "default"
 
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
 # Attach an internet gateway to the vpc "main"
@@ -12,6 +14,8 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.batman.id
 
   tags = {
-    Name = var.tag_name
+    owner =  "jsofack-lemaire@thenuumfactory.fr"
+    ephemere = "oui"
+    entity =  "numfactory"
   }
 }
