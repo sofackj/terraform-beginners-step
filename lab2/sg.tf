@@ -61,7 +61,7 @@ resource "aws_security_group" "sgprivdb" {
     from_port        = 3306
     to_port          = 3306
     protocol         = "tcp"
-    cidr_blocks      = [aws_security_group.sgpubec2.id]
+    security_groups      = [aws_security_group.sgpubec2.id]
   }
 
   egress {
