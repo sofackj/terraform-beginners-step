@@ -15,6 +15,11 @@ variable "vpc_id" {
   type = string
   default = "vpc-06b654aaaf2422e1f"
 }
+# igw id
+variable "igw_id" {
+  type = string
+  default = "igw-061c7808c74a9a3a1"
+}
 # Define tags
 variable "tag_name" {
   type    = string
