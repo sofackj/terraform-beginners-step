@@ -6,12 +6,12 @@ data "aws_vpc" "vpc" {
 data "aws_subnet" "subpub1" {
   filter {
     name   = "tag:Name"
-    values = [var.elb_subnets[0]]
+    values = var.elb_subnets[0]
   }
 }
 data "aws_subnet" "subpub2" {
   filter {
     name   = "tag:Name"
-    values = [var.elb_subnets[1]]
+    values = var.elb_subnets[1]
   }
 }
