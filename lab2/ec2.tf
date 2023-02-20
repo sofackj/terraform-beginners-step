@@ -12,6 +12,6 @@ resource "aws_instance" "appserver" {
    user_data = file("./script-apache.sh")
    
    tags = {
-    Name = "nuumfactory-${environment}-ec2-${digit}"
+    Name = "nuumfactory-${var.environment}-ec2-${var.digit}"
   }
 }
