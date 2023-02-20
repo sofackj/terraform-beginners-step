@@ -58,7 +58,7 @@ resource "aws_security_group" "sgpubec2" {
 }
 
 resource "aws_security_group" "sgprivdb" {
-  name = var.db_sg_name
+  name = local.db_sg_name
   description = "sg-db"
   vpc_id      = var.vpc
 
