@@ -18,14 +18,6 @@ variable "vpc" {
 variable "environment" {
   type = string  
 }
-# igw id
-variable "igw_id" {
+variable "key_file_path" {
   type = string
-  default = "igw-061c7808c74a9a3a1"
-}
-# Id of the AMI
-variable "ami_id" {
-  description = "standard free ec2 instance"
-  # Ubuntu server
-  default = "ami-05b457b541faec0ca"
 }
