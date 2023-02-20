@@ -1,7 +1,7 @@
 resource "aws_security_group" "sgpublb" {
   name = "nuumfactory-dev-elb-sg-15"
   description = "lba-sg"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.vpc
 
   ingress {
     from_port        = 80
@@ -24,7 +24,7 @@ resource "aws_security_group" "sgpublb" {
 resource "aws_security_group" "sgpubec2" {
   name = "nuumfactory-dev-ec2-sg-15"
   description = "ec2-sg"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.vpc
 
   ingress {
     from_port        = 80
@@ -55,7 +55,7 @@ resource "aws_security_group" "sgpubec2" {
 resource "aws_security_group" "sgprivdb" {
   name = "nuumfactory-dev-db-sg-15"
   description = "sg-db"
-  vpc_id      = var.vpc_id
+  vpc_id      = var.vpc
 
   ingress {
     from_port        = 3306
