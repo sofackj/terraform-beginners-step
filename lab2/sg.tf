@@ -18,7 +18,7 @@ resource "aws_security_group" "sgpublb" {
   }
 
   tags = {
-    Name = var.elb_sg_name
+    Name = "${var.elb_sg_name}"
   }
 }
 resource "aws_security_group" "sgpubec2" {
@@ -48,7 +48,7 @@ resource "aws_security_group" "sgpubec2" {
   }
 
   tags = {
-    Name = var.ec2_sg_name
+    Name = "${var.ec2_sg_name}"
   }
 }
 
@@ -72,6 +72,6 @@ resource "aws_security_group" "sgprivdb" {
   }
 
   tags = {
-    Name = var.db_sg_name
+    Name = "${var.db_sg_name}"
   }
 }
