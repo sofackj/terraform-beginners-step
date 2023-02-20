@@ -4,7 +4,7 @@ locals {
   db_sg_name  = "nuumfactory-${var.environment}-db-sg-${var.digit}"
 }
 resource "aws_security_group" "sgpublb" {
-  name = var.elb_sg_name
+  name = local.elb_sg_name
   description = "lba-sg"
   vpc_id      = var.vpc
 
@@ -23,11 +23,11 @@ resource "aws_security_group" "sgpublb" {
   }
 
   tags = {
-    Name = "${var.elb_sg_name}"
+    Name = local.elb_sg_name
   }
 }
 resource "aws_security_group" "sgpubec2" {
-  name = var.ec2_sg_name
+  name = local.ec2_sg_name
   description = "ec2-sg"
   vpc_id      = var.vpc
 
@@ -53,7 +53,7 @@ resource "aws_security_group" "sgpubec2" {
   }
 
   tags = {
-    Name = "${var.ec2_sg_name}"
+    Name = local.ec2_sg_name
   }
 }
 
@@ -77,6 +77,6 @@ resource "aws_security_group" "sgprivdb" {
   }
 
   tags = {
-    Name = "${var.db_sg_name}"
+    Name = local.db_sg_name
   }
 }
