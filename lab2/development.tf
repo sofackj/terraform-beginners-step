@@ -7,7 +7,7 @@ variable "ec2_subnet" {
   type = string  
 }
 variable "ec2_type" {
-  
+  type = string
 }
 variable "digit" {
   type = string  
@@ -22,11 +22,6 @@ variable "environment" {
 variable "igw_id" {
   type = string
   default = "igw-061c7808c74a9a3a1"
-}
-# Define tags
-variable "tag_name" {
-  type    = string
-  default = "julien"
 }
 # Id of the AMI
 variable "ami_id" {

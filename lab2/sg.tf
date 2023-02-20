@@ -1,5 +1,5 @@
 resource "aws_security_group" "sgpublb" {
-  name = "nuumfactory-${var.environment}-elb-sg-${var.digit}"
+  name = var.elb_sg_name
   description = "lba-sg"
   vpc_id      = var.vpc
 
@@ -18,11 +18,11 @@ resource "aws_security_group" "sgpublb" {
   }
 
   tags = {
-    Name = "nuumfactory-${var.environment}-elb-sg-${var.digit}"
+    Name = var.elb_sg_name
   }
 }
 resource "aws_security_group" "sgpubec2" {
-  name = "nuumfactory-${var.environment}-ec2-sg-${var.digit}"
+  name = var.ec2_sg_name
   description = "ec2-sg"
   vpc_id      = var.vpc
 
@@ -48,12 +48,12 @@ resource "aws_security_group" "sgpubec2" {
   }
 
   tags = {
-    Name = "nuumfactory-${var.environment}-ec2-sg-${var.digit}"
+    Name = var.ec2_sg_name
   }
 }
 
 resource "aws_security_group" "sgprivdb" {
-  name = "nuumfactory-${var.environment}-db-sg-${var.digit}"
+  name = var.db_sg_name
   description = "sg-db"
   vpc_id      = var.vpc
 
@@ -72,6 +72,6 @@ resource "aws_security_group" "sgprivdb" {
   }
 
   tags = {
-    Name = "nuumfactory-${var.environment}-db-sg-${var.digit}"
+    Name = var.db_sg_name
   }
 }
