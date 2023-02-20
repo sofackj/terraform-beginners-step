@@ -18,9 +18,6 @@ variable "vpc" {
 variable "environment" {
   type = string  
 }
-variable "vpc_id" {
-  type = string
-}
 # igw id
 variable "igw_id" {
   type = string
