@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "bucket2" {
     imported = "true"
   }
 }
-resource "aws_s3_bucket_versioning" "versioning_example" {
+resource "aws_s3_bucket_versioning" "versioning_example2" {
   bucket = aws_s3_bucket.bucket2.id
   versioning_configuration {
     status = "Enabled"
