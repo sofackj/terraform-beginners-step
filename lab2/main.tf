@@ -9,3 +9,8 @@ terraform {
  region = "eu-west-3"
  }
 }
+locals {
+  elb_sg_name = "nuumfactory-${environment}-lb-${digit}"
+  ec2_sg_name = "nuumfactory-${environment}-lb-${digit}"
+  db_sg_name  = "nuumfactory-${environment}-lb-${digit}"
+}
