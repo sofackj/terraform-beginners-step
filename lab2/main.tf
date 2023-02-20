@@ -10,7 +10,7 @@ terraform {
  }
 }
 locals {
-  elb_sg_name = "nuumfactory-${environment}-lb-${digit}"
-  ec2_sg_name = "nuumfactory-${environment}-lb-${digit}"
-  db_sg_name  = "nuumfactory-${environment}-lb-${digit}"
+  elb_sg_name = "nuumfactory-${var.environment}-lb-${var.digit}"
+  ec2_sg_name = "nuumfactory-${var.environment}-lb-${var.digit}"
+  db_sg_name  = "nuumfactory-${var.environment}-lb-${var.digit}"
 }
