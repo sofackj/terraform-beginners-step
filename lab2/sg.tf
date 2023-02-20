@@ -6,7 +6,7 @@ locals {
 resource "aws_security_group" "sgpublb" {
   name = local.elb_sg_name
   description = "lba-sg"
-  vpc_id      = var.vpc
+  vpc_id      = data.aws_vpc.vpc.id
 
   ingress {
     from_port        = 80
@@ -29,7 +29,7 @@ resource "aws_security_group" "sgpublb" {
 resource "aws_security_group" "sgpubec2" {
   name = local.ec2_sg_name
   description = "ec2-sg"
-  vpc_id      = var.vpc
+  vpc_id      = data.aws_vpc.vpc.id
 
   ingress {
     from_port        = 80
@@ -60,7 +60,7 @@ resource "aws_security_group" "sgpubec2" {
 resource "aws_security_group" "sgprivdb" {
   name = local.db_sg_name
   description = "sg-db"
-  vpc_id      = var.vpc
+  vpc_id      = data.aws_vpc.vpc.id
 
   ingress {
     from_port        = 3306
