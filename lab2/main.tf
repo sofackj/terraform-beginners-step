@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
  backend "s3" {
  bucket = "nuumfactory-terraform-backend"
- key = "terraform-${var.digit}.tfstate"
+ key = "terraform-15.tfstate"
  region = "eu-west-3"
  }
 }
