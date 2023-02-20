@@ -7,3 +7,15 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
     status = "Enabled"
   }
 }
+resource "aws_s3_bucket" "bucket2" {
+  bucket = "nuumfactory-s3-import-2-15"
+  tags = {
+    imported = "true"
+  }
+}
+resource "aws_s3_bucket_versioning" "versioning_example" {
+  bucket = aws_s3_bucket.bucket2.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
