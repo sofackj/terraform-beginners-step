@@ -6,15 +6,15 @@ resource "aws_s3_bucket" "bucket" {
 resource "aws_s3_bucket_versioning" "example" {
   bucket = aws_s3_bucket.bucket.id
   versioning_configuration {
-    status = "Enabled"
+    status = "Suspended"
   }
   resource "null_resource" "toto" {
-  triggers = {
-    status = aws_s3_bucket_versioning.example.versioning_configuration[0].status
+    triggers = {
+      status = aws_s3_bucket_versioning.example.versioning_configuration[0].status
+    }
+    provisioner "local-exec" {
+      command = "echo 'Statut du versioning : ${self.versioning_configuration}' > test.txt"
+    }
   }
-  provisioner "local-exec" {
-    command = "echo 'Statut du versioning : ${self.versioning_configuration}' > test.txt"
-  }
-}
 }
 
