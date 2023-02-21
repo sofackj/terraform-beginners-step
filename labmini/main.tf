@@ -1,28 +1,35 @@
-resource "aws_security_group" "sgpublb" {
-  name =  "nuumfactory-sg-create-before-destroy-15"
-  description = "La description de votre choix"
-
-  ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
-
+resource "aws_s3_bucket" "bucket" {
+  bucket = " nuumfactory-s3-ignorechanges-15"
   tags = {
-    Name = "nuumfactory-create-before-destroy-15"
-  }
-  lifecycle {
-    prevent_destroy = true
+     harry-potter-house = "helloworld"
   }
 }
+
+# resource "aws_security_group" "sgpublb" {
+#   name =  "nuumfactory-sg-create-before-destroy-15"
+#   description = "La description de votre choix"
+
+#   ingress {
+#     from_port        = 80
+#     to_port          = 80
+#     protocol         = "tcp"
+#     cidr_blocks      = ["0.0.0.0/0"]
+#   }
+
+#   egress {
+#     from_port        = 0
+#     to_port          = 0
+#     protocol         = "-1"
+#     cidr_blocks      = ["0.0.0.0/0"]
+#   }
+
+#   tags = {
+#     Name = "nuumfactory-create-before-destroy-15"
+#   }
+#   lifecycle {
+#     prevent_destroy = true
+#   }
+# }
 
 # resource "aws_s3_bucket" "bucket" {
 #   count = 5
