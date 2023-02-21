@@ -13,7 +13,7 @@ resource "aws_s3_bucket_versioning" "example" {
       status = aws_s3_bucket_versioning.example.versioning_configuration[0].status
     }
     provisioner "local-exec" {
-      command = "echo 'Statut du versioning : ${self.versioning_configuration}' > test.txt"
+      command = "echo 'Statut du versioning : ${aws_s3_bucket_versioning.example.versioning_configuration[0].status}' > test.txt"
     }
   }
 }
