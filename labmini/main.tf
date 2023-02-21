@@ -1,38 +1,75 @@
-resource "aws_security_group" "sgpublb" {
-  name =  "nuumfactory-sg-replace-triggered-by-15"
-  description = "La description de votre choix"
+resource "aws_instance "ec2" {
+    for_each = {
+        "instance1" = {
+            "type" = "t2.micro",
+            "az" = "a",
+            "public_ip" = true
+        }
+        "instance2" = {
+            "type" = "t2.small",
+            "az" = "b",
+            "public_ip" = true
+        }
+        "instance3" = {
+            "type" = "t2.medium",
+            "az" = "c",
+            "public_ip" = true
+        }
+        "instance4" = {
+            "type" = "t2.large",
+            "az" = "a",
+            "public_ip" = false
+        }
+        "instance5" = {
+            "type" = "t2.xlarge",
+            "az" = "b",
+            "public_ip" = false
+        }
+    }
+    ami = "ami-0f15e0a4c8d3ee5fe"
+    associate_public_ip_address = each.value.public_ip
+    instance_type = "${each.value.type}"
+    availability_zone = "eu-west-3${each.value.az}"
+    tags = {
+         Name = "nuumfactory-ec2-for-each-15"
+    }
+}
 
-  ingress {
-    from_port        = 80
-    to_port          = 80
-    protocol         = "tcp"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
+# resource "aws_security_group" "sgpublb" {
+#   name =  "nuumfactory-sg-replace-triggered-by-15"
+#   description = "La description de votre choix"
 
-  egress {
-    from_port        = 0
-    to_port          = 0
-    protocol         = "-1"
-    cidr_blocks      = ["0.0.0.0/0"]
-  }
+#   ingress {
+#     from_port        = 80
+#     to_port          = 80
+#     protocol         = "tcp"
+#     cidr_blocks      = ["0.0.0.0/0"]
+#   }
 
-  tags = {
-    Name = "nuumfactory-sg-replace-triggered-by-15"
-  }
+#   egress {
+#     from_port        = 0
+#     to_port          = 0
+#     protocol         = "-1"
+#     cidr_blocks      = ["0.0.0.0/0"]
+#   }
+
+#   tags = {
+#     Name = "nuumfactory-sg-replace-triggered-by-15"
+#   }
   
-}
+# }
 
-resource "aws_s3_bucket" "bucket" {
-  bucket = "nuumfactory-sg-replace-triggered-by-15"
-  tags = {
-     harry-potter-house = "helloworld"
-  }
-  lifecycle {
-    replace_triggered_by = [
-      aws_security_group.sgpublb.id
-    ]
-  }
-}
+# resource "aws_s3_bucket" "bucket" {
+#   bucket = "nuumfactory-sg-replace-triggered-by-15"
+#   tags = {
+#      harry-potter-house = "helloworld"
+#   }
+#   lifecycle {
+#     replace_triggered_by = [
+#       aws_security_group.sgpublb.id
+#     ]
+#   }
+# }
 
 # resource "aws_s3_bucket" "bucket" {
 #   bucket = " nuumfactory-s3-ignorechanges-15"
