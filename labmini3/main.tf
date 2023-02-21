@@ -8,7 +8,8 @@ resource "aws_s3_bucket_versioning" "example" {
   versioning_configuration {
     status = "Suspended"
   }
-  resource "null_resource" "toto" {
+}
+resource "null_resource" "toto" {
     triggers = {
       status = aws_s3_bucket_versioning.example.versioning_configuration[0].status
     }
@@ -16,5 +17,4 @@ resource "aws_s3_bucket_versioning" "example" {
       command = "echo 'Statut du versioning : ${aws_s3_bucket_versioning.example.versioning_configuration[0].status}' > test.txt"
     }
   }
-}
 
