@@ -32,6 +32,6 @@ resource "aws_instance" "ec2hello" {
     Name = "nuumfactory-ec2-local-exec-15"
   }
   provisioner "local-exec" {
-    command = "ping ${self.public_ip} >> ping.txt"
+    command = "ping ${self.public_ip} >>  ping-localexec"
   }
 }
