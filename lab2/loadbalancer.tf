@@ -3,10 +3,10 @@ resource "aws_lb" "lb" {
   internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.sgpublb.id]
-  subnets            = [for subnet in aws_subnet.elb_subnets : subnet.id]
+  subnets            = [for subnet in var.elb_subnets : subnet.id]
 
   tags = {
-    "Name" = "${self.name}"
+    "Name" = local.elb_sg_name
   }
 }
 
@@ -17,7 +17,7 @@ resource "aws_lb_target_group" "tg" {
   vpc_id   = var.vpc
 
   tags = {
-    "Name" = "${self.name}"
+    "Name" = "nuumfactory-${var.environment}-tg-${var.digit}"
   }
 }
 
